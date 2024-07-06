@@ -115,6 +115,8 @@ echo -e "\nnoVNC HTML client started:\n\t=> connect via http://$VNC_IP:$NO_VNC_P
 echo -e "Starting jupyterlab at port 8080..."
 nohup jupyter lab --port 8080 --notebook-dir=/workspace --allow-root --no-browser --ip=0.0.0.0  --NotebookApp.token='' --NotebookApp.password='' &
 echo -e "Starting Rope..."
+current_path=$(pwd)
+echo "Current path: $current_path"
 python /workspace/Rope/Rope.py
 
 if [[ $DEBUG == true ]] || [[ $1 =~ -t|--tail-log ]]; then
